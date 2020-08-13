@@ -38,7 +38,8 @@ score = metrics.accuracy_score(test_label, result)
 print('학습률 : ', score)
 
 # 모델평가 k교차검증
-cross_score = cross_val_score(model, train_data, train_label)
+# 기본 5번 cv옵션을 통해 횟수 정할 수 있다
+cross_score = cross_val_score(model, train_data, train_label, cv=10)
 cross_score_mean = cross_score.mean()
 print('모델성능 점수 : ', cross_score)
 print('모델성능 평균 : ', cross_score_mean)
